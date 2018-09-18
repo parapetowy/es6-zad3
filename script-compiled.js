@@ -3,7 +3,7 @@ class Stopwatch {
         this.running = false;
         this.display = display;
         this.reset();
-        this.prnt(this.times);
+        this.print(this.times);
     }
 
     reset() {
@@ -14,7 +14,7 @@ class Stopwatch {
         };
     }
 
-    prnt() {
+    print() {
         this.display.innerText = this.format(this.times);
     }
 
@@ -37,7 +37,7 @@ class Stopwatch {
     step() {
         if (!this.running) return;
         this.calculate();
-        this.prnt();
+        this.print();
     }
 
     calculate() {
@@ -54,6 +54,15 @@ class Stopwatch {
 
     write() {
         save(this.format(this.times));
+    }
+
+    resetStopwatch() {
+        this.running = true;
+        this.times = {
+            minutes: 0,
+            seconds: 0,
+            miliseconds: 0
+        };
     }
 
 }
@@ -83,7 +92,7 @@ let stopButton = document.getElementById('stop');
 stopButton.addEventListener('click', () => stopwatch.stop());
 
 let resetButton = document.getElementById('reset');
-resetButton.addEventListener('click', () => stopwatch.reset());
+resetButton.addEventListener('click', () => stopwatch.resetStopwatch());
 
 let writeButton = document.getElementById('write');
 writeButton.addEventListener('click', () => stopwatch.write());
