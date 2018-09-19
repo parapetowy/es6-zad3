@@ -3,7 +3,7 @@ class Stopwatch {
         this.running = false;
         this.display = display;
         this.reset();
-        this.print(this.times);
+        this.print();
     }
 
     reset() {
@@ -66,10 +66,10 @@ function pad0(value) {
 }
 
 function save(timer) {
-    let res = document.createElement('li');
+    const res = document.createElement('li');
     res.innerText = timer;
 
-    let tab = document.querySelector('.results');
+    const tab = document.querySelector('.results');
     tab.insertBefore(res, tab.childNodes[0]);
 }
 
