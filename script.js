@@ -55,16 +55,6 @@ class Stopwatch {
     write() {
         save(this.format(this.times));
     }
-
-    resetStopwatch() {
-        this.running = true;
-        this.times = {
-            minutes: 0,
-            seconds: 0,
-            miliseconds: 0
-        };
-    }
-
 }
 
 function pad0(value) {
@@ -86,14 +76,14 @@ function save(timer) {
 const stopwatch = new Stopwatch(
     document.querySelector('.stopwatch'));
 
-let startButton = document.getElementById('start');
+const startButton = document.getElementById('start');
 startButton.addEventListener('click', () => stopwatch.start());
 
-let stopButton = document.getElementById('stop');
+const stopButton = document.getElementById('stop');
 stopButton.addEventListener('click', () => stopwatch.stop());
 
-let resetButton = document.getElementById('reset');
-resetButton.addEventListener('click', () => stopwatch.resetStopwatch());
+const resetButton = document.getElementById('reset');
+resetButton.addEventListener('click', () => stopwatch.reset());
 
-let writeButton = document.getElementById('write');
+const writeButton = document.getElementById('write');
 writeButton.addEventListener('click', () => stopwatch.write());
